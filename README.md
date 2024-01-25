@@ -1,8 +1,28 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This is a [**React Native**](https://reactnative.dev) project
 
-# Getting Started
+## Background Questions
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### Q1.
+
+```
+this.setState({count: this.state.count+1})
+```
+
+The problem with using this form of updating state is that setState updates are asynchronous. This means that they may not immediately happen which would mean that the count value at that moment is innacurate. State in React should be treated as immutable i.e it shouldn't be changed directly. State should be updated by creating a new state object or using a setState function such as:
+
+```
+this.setState((prevState) => {
+  return { count: prevState.count + 1 };
+});
+```
+
+Within the component, the element that relects the count variable will not be an accurate representation of the actual state.
+
+### Q2.
+
+If you imagine a company with many departments. Each department needs to share information with other departments. This can be done by each department passing messages to other departments. This can quickoy get out of control and lead to mistakes. A central point that provides information and allows departments to update the information in one place solves this problem. Redux is like this central information point.
+
+## Starting the App
 
 ## Step 1: Start the Metro Server
 
@@ -46,34 +66,12 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+### Next Steps
 
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Make sure the types are correct
+- Add tests
+- Sort out AppContext and make sure I'm using that properly
+- Missed the labels for the lines on the chart so I would add them
+- Tidy up the useApp hook and the functions within it
+- Make the components reusable
+- Tidy up styles
